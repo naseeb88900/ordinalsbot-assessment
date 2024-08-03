@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OrdinalsBot Frontend Assessment
+
+This repository contains the code for the frontend assessment project completed for the frontend developer role at OrdinalsBot.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Project Structure](#project-structure)
+
+## Features
+
+- View the available and transferable balance of any BRC20 token.
+- Render relevant order information on the page.
+- Connect a browser wallet.
+- View current Bitcoin block and current price.
+
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js and npm installed on your machine.
+- nvm (Node Version Manager) installed on your machine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    ```bash
+    git clone https://github.com/naseeb88900/ordinalsbot-assessment.git
+    ```
 
-## Learn More
+2. Navigate to the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    cd ordinalsbot-assessment
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Use the correct Node.js version:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    nvm use
+    ```
 
-## Deploy on Vercel
+    If you don't have the required version of Node.js installed, you can install it using:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    nvm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+5. Set up environment variables:
+
+    Create a `.env.local` file in the root directory and add the following:
+
+    ```env
+    API_KEY=your_api_key
+    WALLET_ADDRESS=your_brc20_wallet_address
+    ```
+
+6. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+7. Open your browser and navigate to `http://localhost:3000` to access the assessment.
+
+## Project Structure
+
+- `public/`: Static assets like images, fonts, and other resources.
+- `src/app`: App Router.
+- `src/styles/`: Stylesheets and Tailwind CSS configuration files.
+- `src/lib/`: Utility functions and helper modules.
+- `src/constants`: Constants used throughout the application.
