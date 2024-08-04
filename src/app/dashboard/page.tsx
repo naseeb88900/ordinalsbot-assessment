@@ -4,6 +4,7 @@ import * as React from 'react';
 import { config } from '@/config';
 import { Metadata } from 'next';
 import { Brc20BalanceResult, fetchBrc20Balance } from '@/lib';
+import { Connect } from '@/lib/connect-wallet';
 
 export const metadata = { title: `Dashboard | ${config.site.name}` } satisfies Metadata;
 
@@ -22,6 +23,7 @@ const Dashboard: React.FC = async () => {
     return (
         <div>
             <h1>Dashboard</h1>
+            <Connect/>
             {balance ? (
                 <div>
                     <h2>BRC20 Balance</h2>

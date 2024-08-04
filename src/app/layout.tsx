@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
+import WalletProvider from '@/providers/rainbow-kit';
 
 export const viewport = { width: 'device-width', initialScale: 1 } satisfies Viewport;
 
@@ -11,7 +12,11 @@ interface LayoutProps {
 export default function RootLayout({ children }: LayoutProps): React.JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <WalletProvider>
+          {children}
+        </WalletProvider>
+      </body>
     </html>
   );
 }
