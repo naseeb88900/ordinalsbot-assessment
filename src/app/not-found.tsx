@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import RouterLink from 'next/link';
-import { paths } from '@/paths';
-import { config } from '@/config';
+import { paths } from '@/constants/paths';
+import { config } from '@/constants/config';
 
 import { Box, Button, Stack, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

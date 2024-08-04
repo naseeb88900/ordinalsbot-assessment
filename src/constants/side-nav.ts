@@ -1,4 +1,4 @@
-import { paths } from '@/paths';
+import { paths } from '@/constants/paths';
 import { NavItemConfig } from '@/types/nav';
 
 export const navItems = [

@@ -1,25 +1,28 @@
 import * as React from 'react';
-import { config } from '@/config';
+import { config } from '@/constants/config';
 import { Metadata } from 'next';
 import { Brc20BalanceResult, fetchBrc20Balance } from '@/lib';
 import DashboardLayout from '@/components/dashboard/dashboard-layout';
+import { API_KEY, WALLET_ADDRESS } from '@/constants/global';
+import { API_KEY_WALLET_ADDRESS_REQUIRED, UNABLE_TO_FETCH_BRC20_BALANCE, UNKNOWN_ERROR } from '@/constants/errors';
 
 export const metadata = { title: `Dashboard | ${config.site.name}` } satisfies Metadata;
 
-interface DashboardProps {
-    balance: Brc20BalanceResult | null;
-}
-
 const Dashboard: React.FC = async () => {
-    const apiKey = process.env.API_KEY!;
-    const address = process.env.WALLET_ADDRESS!;
+    let balance: Brc20BalanceResult | null = null;
+    let error: string | null = null;
 
-    // Fetch balance directly within the component
-    const balance = await fetchBrc20Balance(apiKey, address);
-
+    try {
+        if (!API_KEY || !WALLET_ADDRESS) {
+            throw new Error(API_KEY_WALLET_ADDRESS_REQUIRED);
+        }
+        balance = await fetchBrc20Balance(API_KEY, WALLET_ADDRESS);
+    } catch (err) {
+        error = (err instanceof Error) ? err.message : UNKNOWN_ERROR;
+    }
     return (
         <DashboardLayout>
-            <h1>Dashboard</h1>
+            <h1>BRC20 Balance</h1>
             {balance ? (
                 <div>
                     <h2>BRC20 Balance</h2>
@@ -29,7 +32,7 @@ const Dashboard: React.FC = async () => {
                     <p><strong>Tick:</strong> {balance.tick}</p>
                 </div>
             ) : (
-                <p>Unable to fetch BRC20 balance.</p>
+                <p>{error || UNABLE_TO_FETCH_BRC20_BALANCE}</p>
             )}
         </DashboardLayout>
     );
