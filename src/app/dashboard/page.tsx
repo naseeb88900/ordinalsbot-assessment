@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { config } from '@/constants/config';
 import { Metadata } from 'next';
-import { Brc20BalanceResult, fetchBrc20Balance } from '@/lib';
+import { fetchBrc20Balance } from '@/lib';
 import DashboardLayout from '@/components/dashboard/dashboard-layout';
 import { API_KEY, WALLET_ADDRESS } from '@/constants/global';
 import { API_KEY_WALLET_ADDRESS_REQUIRED, UNABLE_TO_FETCH_BRC20_BALANCE, UNKNOWN_ERROR } from '@/constants/errors';
+import { Brc20BalanceResult } from '@/types/balance';
 
 export const metadata = { title: `Dashboard | ${config.site.name}` } satisfies Metadata;
 
