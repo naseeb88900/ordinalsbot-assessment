@@ -1,5 +1,5 @@
+import { Brc20BalanceResponse } from '@/types/balance';
 import axios from 'axios';
-import { Brc20BalanceResponse } from '@lib/types';
 
 export async function getBrc20Balance(apiKey: string, address: string): Promise<Brc20BalanceResponse> {
     try {

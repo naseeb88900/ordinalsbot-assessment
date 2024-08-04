@@ -23,7 +23,7 @@ const { chains, provider } = configureChains(
         chain.localhost,
         chain.hardhat
     ],
-    [apiProvider.alchemy(process.env.ALCHEMY_ID), apiProvider.fallback()]
+    [apiProvider.fallback()]
 );
 
 const { connectors } = getDefaultWallets({

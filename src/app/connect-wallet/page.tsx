@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { config } from '@/config';
+import { config } from '@/constants/config';
 import { Metadata } from 'next';
 import { Connect } from '@/lib/connect-wallet';
 import DashboardLayout from '@/components/dashboard/dashboard-layout';

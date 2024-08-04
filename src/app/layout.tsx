@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import "@/styles/globals.css";
 import WalletProvider from '@/providers/rainbow-kit';
 
