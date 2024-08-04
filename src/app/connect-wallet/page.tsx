@@ -2,6 +2,7 @@ import * as React from 'react';
 import { config } from '@/config';
 import { Metadata } from 'next';
 import { Connect } from '@/lib/connect-wallet';
+import DashboardLayout from '@/components/dashboard/dashboard-layout';
 
 export const metadata = { title: `Connect Wallet | ${config.site.name}` } satisfies Metadata;
 
@@ -9,7 +10,9 @@ export const metadata = { title: `Connect Wallet | ${config.site.name}` } satisf
 
 const ConnectWallet: React.FC = async () => {
     return (
-        <Connect />
+        <DashboardLayout>
+            <Connect />
+        </DashboardLayout>
     );
 };
 
