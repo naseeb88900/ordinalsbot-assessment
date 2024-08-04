@@ -10,6 +10,7 @@ This repository contains the code for the frontend assessment project completed 
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Project Structure](#project-structure)
+- [Live View](#live-view)
 
 ## Features
 
@@ -83,7 +84,16 @@ This repository contains the code for the frontend assessment project completed 
 ## Project Structure
 
 - `public/`: Static assets like images, fonts, and other resources.
-- `src/app`: App Router.
+- `src/app/`: Application-level components and pages for the Next.js app.
+- `src/components/`: Reusable UI components used across the application.
+- `src/providers/`: Context providers and hooks for managing state and dependencies.
+- `src/types/`: TypeScript type definitions and interfaces used throughout the project.
 - `src/styles/`: Stylesheets and Tailwind CSS configuration files.
 - `src/lib/`: Utility functions and helper modules.
-- `src/constants`: Constants used throughout the application.
+- `src/constants/`: Constants used throughout the application.
+
+## Live View
+
+You can view the live version of the project on Vercel at the following link:
+
+[Live View on Vercel](https://ordinalsbot-assessment.vercel.app)
