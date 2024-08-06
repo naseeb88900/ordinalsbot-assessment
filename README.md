@@ -72,6 +72,7 @@ This repository contains the code for the frontend assessment project completed 
     API_KEY=your_api_key
     WALLET_ADDRESS=your_brc20_wallet_address
     BULKORDER_ID=id_to_fetch_orders
+    API_BASE_URL=your_api_base_url (e.g https://api.ordinalsbot.com/)
     ```
 
 6. Start the development server:
