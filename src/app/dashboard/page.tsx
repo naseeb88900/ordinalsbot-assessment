@@ -4,8 +4,9 @@ import { Metadata } from 'next';
 import { fetchBrc20Balance } from '@/lib';
 import DashboardLayout from '@/components/dashboard/dashboard-layout';
 import { API_KEY, WALLET_ADDRESS } from '@/constants/global';
-import { API_KEY_WALLET_ADDRESS_REQUIRED, UNABLE_TO_FETCH_BRC20_BALANCE, UNKNOWN_ERROR } from '@/constants/errors';
+import { API_KEY_WALLET_ADDRESS_REQUIRED, NO_BALANCE_FOUND, UNKNOWN_ERROR } from '@/constants/errors';
 import { Brc20BalanceResult } from '@/types/balance';
+import BalanceDisplay from '@/components/dashboard/balance-display';
 
 export const metadata = { title: `Dashboard | ${config.site.name}` } satisfies Metadata;
 
@@ -23,18 +24,22 @@ const Dashboard: React.FC = async () => {
     }
     return (
         <DashboardLayout>
-            <h1>BRC20 Balance</h1>
-            {balance ? (
-                <div>
-                    <h2>BRC20 Balance</h2>
-                    <p><strong>Overall Balance:</strong> {balance.overall_balance}</p>
-                    <p><strong>Available Balance:</strong> {balance.available_balance}</p>
-                    <p><strong>Block Height:</strong> {balance.block_height}</p>
-                    <p><strong>Tick:</strong> {balance.tick}</p>
-                </div>
-            ) : (
-                <p>{error || UNABLE_TO_FETCH_BRC20_BALANCE}</p>
-            )}
+            <div className="p-6 space-y-6">
+                <h1 className="text-3xl font-bold mb-4">BRC20 Balance</h1>
+                {error ? (
+                    <div className="p-4 bg-red-100 text-red-800 rounded-md">
+                        <h2 className="text-xl font-semibold">Error</h2>
+                        <p>{error || NO_BALANCE_FOUND}</p>
+                    </div>
+                ) : (
+                    balance && (
+                        <BalanceDisplay
+                            overallBalance={balance.overall_balance}
+                            availableBalance={balance.available_balance}
+                        />
+                    )
+                )}
+            </div>
         </DashboardLayout>
     );
 };
