@@ -61,7 +61,7 @@ This repository contains the code for the frontend assessment project completed 
 4. Install dependencies:
 
     ```bash
-    npm install
+    npm install --legacy-peer-deps
     ```
 
 5. Set up environment variables:
@@ -71,6 +71,7 @@ This repository contains the code for the frontend assessment project completed 
     ```env
     API_KEY=your_api_key
     WALLET_ADDRESS=your_brc20_wallet_address
+    BULKORDER_ID=id_to_fetch_orders
     ```
 
 6. Start the development server:
