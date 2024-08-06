@@ -1,9 +1,9 @@
 import { OrderResponse } from '@/types/order';
-import axios from 'axios';
+import axiosInstance from '../axios-instance';
 
 export async function getOrder(id: string): Promise<OrderResponse> {
     try {
-        const response = await axios.get('https://api.ordinalsbot.com/order', {
+        const response = await axiosInstance.get('/order', {
             params: {
                 id
             },
