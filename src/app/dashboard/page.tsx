@@ -24,22 +24,14 @@ const Dashboard: React.FC = async () => {
     }
     return (
         <DashboardLayout>
-            <div className="p-6 space-y-6">
-                <h1 className="text-3xl font-bold mb-4">BRC20 Balance</h1>
-                {error ? (
-                    <div className="p-4 bg-red-100 text-red-800 rounded-md">
-                        <h2 className="text-xl font-semibold">Error</h2>
-                        <p>{error || NO_BALANCE_FOUND}</p>
-                    </div>
-                ) : (
-                    balance && (
-                        <BalanceDisplay
-                            overallBalance={balance.overall_balance}
-                            availableBalance={balance.available_balance}
-                        />
-                    )
-                )}
-            </div>
+            {balance ? (
+                <BalanceDisplay
+                    overallBalance={balance.overall_balance}
+                    availableBalance={balance.available_balance}
+                />
+            ) : (
+                <p>{error || NO_BALANCE_FOUND}</p>
+            )}
         </DashboardLayout>
     );
 };
